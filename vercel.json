@@ -7,7 +7,6 @@
   "framework": null,
   "functions": {
     "backend/api/*.js": {
-      "runtime": "nodejs18.x",
       "maxDuration": 30
     }
   },
