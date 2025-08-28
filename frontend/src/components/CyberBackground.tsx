@@ -42,8 +42,8 @@ const CyberBackground: React.FC = () => {
       alpha: number;
 
       constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
+        this.x = Math.random() * (canvas?.width || window.innerWidth);
+        this.y = Math.random() * (canvas?.height || window.innerHeight);
         this.vx = (Math.random() - 0.5) * 0.5;
         this.vy = (Math.random() - 0.5) * 0.5;
         this.size = Math.random() * particleSize + 0.5;
@@ -56,8 +56,8 @@ const CyberBackground: React.FC = () => {
         this.y += this.vy;
 
         // 边界检查
-        if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
-        if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+        if (this.x < 0 || this.x > (canvas?.width || window.innerWidth)) this.vx = -this.vx;
+        if (this.y < 0 || this.y > (canvas?.height || window.innerHeight)) this.vy = -this.vy;
       }
 
       draw(ctx: CanvasRenderingContext2D) {

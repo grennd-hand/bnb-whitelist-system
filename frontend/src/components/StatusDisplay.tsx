@@ -24,7 +24,7 @@ const StatusDisplay: React.FC = () => {
 
       try {
         const response = await whitelistApi.checkWalletStatus(address);
-        setIsVerified(response.isVerified);
+        setIsVerified(response.data.isVerified);
       } catch (error: any) {
         console.error("检查状态时出错:", error);
         setError(error.message || "检查状态失败");

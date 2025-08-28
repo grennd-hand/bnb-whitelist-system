@@ -24,7 +24,7 @@ const WhitelistVerification: React.FC = () => {
         setIsCheckingStatus(true);
         try {
           const response = await whitelistApi.checkWalletStatus(address);
-          if (response.isVerified) {
+          if (response.data.isVerified) {
             setVerificationStatus("already_verified");
           }
         } catch (error) {
@@ -57,7 +57,7 @@ const WhitelistVerification: React.FC = () => {
 
     try {
       const response = await whitelistApi.verifyCode(code.trim(), address);
-      if (response.success) {
+      if (response.data.success) {
         setVerificationStatus("success");
         showNotification("success", "验证成功", "您的钱包已成功通过白名单验证");
       }
