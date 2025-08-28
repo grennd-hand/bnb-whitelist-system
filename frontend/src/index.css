@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    
+    --radius: 0.5rem;
+    
+    --cyber-black: 220 13% 9%;
+    --cyber-dark: 220 13% 18%;
+    --cyber-blue: 180 100% 50%;
+    --cyber-pink: 320 100% 50%;
+    --cyber-yellow: 60 100% 50%;
+    --cyber-green: 120 100% 40%;
+    --cyber-red: 0 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  .cyber-panel {
+    @apply relative border border-cyber-blue bg-cyber-black bg-opacity-80 shadow-[0_0_10px_rgba(0,240,255,0.3)] backdrop-blur-sm;
+    clip-path: polygon(
+      0 10px,
+      10px 0,
+      calc(100% - 10px) 0,
+      100% 10px,
+      100% calc(100% - 10px),
+      calc(100% - 10px) 100%,
+      10px 100%,
+      0 calc(100% - 10px)
+    );
+  }
+  
+  .cyber-button {
+    @apply relative overflow-hidden border border-cyber-blue bg-cyber-dark text-cyber-blue shadow-[0_0_10px_rgba(0,240,255,0.3)] transition-all hover:bg-cyber-blue hover:text-cyber-black;
+    clip-path: polygon(
+      0 5px,
+      5px 0,
+      calc(100% - 5px) 0,
+      100% 5px,
+      100% calc(100% - 5px),
+      calc(100% - 5px) 100%,
+      5px 100%,
+      0 calc(100% - 5px)
+    );
+  }
+  
+  .cyber-button:before {
+    @apply absolute inset-0 bg-cyber-blue opacity-0 transition-opacity content-[''];
+    box-shadow: 0 0 15px 3px rgba(0, 240, 255, 0.5);
+  }
+  
+  .cyber-button:hover:before {
+    @apply opacity-100;
+  }
+  
+  .cyber-button:disabled {
+    @apply border-gray-600 bg-gray-800 text-gray-500 shadow-none;
+  }
+  
+  .cyber-input {
+    @apply border-cyber-blue bg-cyber-dark text-cyber-blue shadow-[0_0_5px_rgba(0,240,255,0.3)] focus:border-cyber-pink focus:shadow-[0_0_10px_rgba(255,0,240,0.5)];
+  }
+  
+  .cyber-text {
+    @apply font-mono text-cyber-blue;
+    text-shadow: 0 0 5px rgba(0, 240, 255, 0.5);
+  }
+  
+  .cyber-text-pink {
+    @apply font-mono text-cyber-pink;
+    text-shadow: 0 0 5px rgba(255, 0, 240, 0.5);
+  }
+  
+  .cyber-text-yellow {
+    @apply font-mono text-cyber-yellow;
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+  }
+  
+  .cyber-border {
+    @apply border-2 border-cyber-blue shadow-[0_0_10px_rgba(0,240,255,0.3)];
+  }
+  
+  .cyber-border-pink {
+    @apply border-2 border-cyber-pink shadow-[0_0_10px_rgba(255,0,240,0.3)];
+  }
+  
+  .font-cyber {
+    @apply font-mono tracking-wider;
+  }
+}
